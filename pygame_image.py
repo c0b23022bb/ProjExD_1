@@ -27,15 +27,17 @@ def main():
         screen.blit(bg_img2, [-x + 4800, 0])
         screen.blit(koukaton, kkrect.center)
         key_lst = pg.key.get_pressed()
-        kkrect.move_ip((-1,0))
+        dx = -1
+        dy = 0
         if key_lst[pg.K_UP]:
-            kkrect.move_ip((0,-1))
+            dy = -1
         elif key_lst[pg.K_DOWN]:
-            kkrect.move_ip((0,1))
+            dy = 1
         elif key_lst[pg.K_LEFT]:
-            kkrect.move_ip((-1,0))
+            dx = -2
         elif key_lst[pg.K_RIGHT]:
-            kkrect.move_ip((2,0))
+            dx = 2      
+        kkrect.move_ip((dx,dy))   
         pg.display.update()
         tmr += 1
         img_x = img_x - 1        
